@@ -20,7 +20,7 @@ bool DO_DEBUG = true;
 bool DO_DEBUG = false;
 #endif
 
-const char *VERSION = "0.1.3";
+const char *VERSION = "0.1.4";
 
 /* 
  * Date and time Neil Armstrong stepped on the moon:
@@ -114,7 +114,7 @@ char *std_tm_str(struct std_tm *stddate) {
 	int size = 30;
 	char *asc = (char *)malloc(size);
 
-	sprintf(asc, "%04d.%1d.%1d.%1d %02d:%02d:%02d",
+	sprintf(asc, "%04d.%1d.%1d.%1d %01d:%02d:%02d",
 		stddate->stm_year, stddate->stm_month, stddate->stm_week,
 		stddate->stm_day, stddate->stm_hour, stddate->stm_min,
 		stddate->stm_sec);
@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
 		else {
 			if (DO_DEBUG) {
 				printf("Standard Reference Time (SRT):\n");
-				printf("    yyyy.m.w.d hh:mm:ss => %s\n",
+				printf("    yyyy.m.w.d h:mm:ss => %s\n",
 			       		std_tm_str(&current));
 			}
 			else {
