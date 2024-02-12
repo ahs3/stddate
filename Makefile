@@ -9,5 +9,8 @@ stddate: stddate.c
 debug:
 	gcc -DDEBUG -g -o stddate stddate.c
 
+install: stddate
+	install -v stddate /usr/local/bin
+
 clean:
 	rm stddate
