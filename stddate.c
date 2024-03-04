@@ -20,7 +20,7 @@ bool DO_DEBUG = true;
 bool DO_DEBUG = false;
 #endif
 
-const char *VERSION = "0.2.0";
+const char *VERSION = "0.2.1";
 
 /* 
  * Date and time Neil Armstrong stepped on the moon:
@@ -30,7 +30,7 @@ const char *VERSION = "0.2.0";
 struct tm EPOCH = {
 	.tm_sec = 0,
 	.tm_min = 32,
-	.tm_hour = 12,
+	.tm_hour = 13,
 	.tm_mday = 16,
 	.tm_mon = 6,
 	.tm_year = 69,
