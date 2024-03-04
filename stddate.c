@@ -20,7 +20,7 @@ bool DO_DEBUG = true;
 bool DO_DEBUG = false;
 #endif
 
-const char *VERSION = "0.1.4";
+const char *VERSION = "0.2.0";
 
 /* 
  * Date and time Neil Armstrong stepped on the moon:
@@ -221,24 +221,25 @@ int main(int argc, char *argv[]) {
 		if (DO_DEBUG) {
 			printf("SRT epoch (UTC):    %s", ctime(&std_epoch));
 			printf("   seconds since Unix epoch: %ld\n", std_epoch);
+			printf("   timezone seconds: %ld\n", timezone);
 		}
 
 		now = time(NULL);
 		printf("Current time (UTC):            %s",
 			asctime(gmtime(&now)));
+		printf("Current time (local):          %s",
+			asctime(localtime(&now)));
 
 		res = std_time(now - std_epoch, &current);
 		if (res) {
 			printf("? errno: %d\n", res);
 			exit(res);
-		}
-		else {
+		} else {
 			if (DO_DEBUG) {
 				printf("Standard Reference Time (SRT):\n");
 				printf("    yyyy.m.w.d h:mm:ss => %s\n",
 			       		std_tm_str(&current));
-			}
-			else {
+			} else {
 				printf("Standard Reference Time (SRT): %s\n",
 			       		std_tm_str(&current));
 			}
