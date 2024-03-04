@@ -12,5 +12,8 @@ debug:
 install: stddate
 	install -v stddate /usr/local/bin
 
+delta: delta.c
+	gcc -DDEBUG -g -o delta delta.c
+
 clean:
-	rm stddate
+	rm -f stddate delta
