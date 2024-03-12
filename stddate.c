@@ -20,7 +20,7 @@ bool DO_DEBUG = true;
 bool DO_DEBUG = false;
 #endif
 
-const char *VERSION = "0.2.1";
+const char *VERSION = "0.2.2";
 
 /* 
  * Date and time Neil Armstrong stepped on the moon:
@@ -163,7 +163,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	std_epoch = mktime(&EPOCH);
+	std_epoch = mktime(&EPOCH) - timezone;
 	if (do_continuous) {
 		now = time(NULL);
 		res = std_time(now - std_epoch, &current);
